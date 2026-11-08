@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Merry Christmas</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      display: grid;
+      min-height: 100vh;
+      min-height: 100svh;
+      margin: 0;
+      place-items: center;
+      overflow: hidden;
+      isolation: isolate;
+      background:
+        radial-gradient(ellipse at 50% 40%, rgba(196, 146, 83, 0.18), transparent 42%),
+        linear-gradient(145deg, #0b2925, #164b3b 52%, #092e29);
+      color: #fff9e9;
+      font-family: Georgia, "Times New Roman", serif;
+    }
+
+    .snow {
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      overflow: hidden;
+      pointer-events: none;
+    }
+
+    .snow::before,
+    .snow::after {
+      position: absolute;
+      inset: -100% 0 0;
+      background-image:
+        radial-gradient(2px 2px at 30px 40px, rgba(255, 255, 255, 0.9) 98%, transparent),
+        radial-gradient(3px 3px at 140px 160px, rgba(255, 249, 233, 0.8) 98%, transparent),
+        radial-gradient(1.5px 1.5px at 220px 90px, rgba(255, 255, 255, 0.8) 98%, transparent);
+      background-size: 260px 260px;
+      content: "";
+      animation: snowfall 16s linear infinite;
+    }
+
+    .snow::after {
+      background-position: 80px 120px;
+      background-size: 340px 340px;
+      opacity: 0.6;
+      animation-duration: 24s;
+      animation-direction: reverse;
+    }
+
+    main {
+      position: relative;
+      text-align: center;
+    }
+
+    h1 {
+      margin: 0 0 0.5rem;
+      color: #f2d492;
+      font-size: clamp(2rem, 7vw, 3.5rem);
+      font-weight: 400;
+    }
+
+    p {
+      margin: 0 0 1.5rem;
+      color: rgba(255, 249, 233, 0.82);
+      font-style: italic;
+    }
+
+    .tree-link {
+      display: inline-block;
+      width: min(72vw, 20rem);
+      border-radius: 1rem;
+      transition: transform 200ms ease, filter 200ms ease;
+    }
+
+    .tree-link:hover {
+      transform: translateY(-5px) scale(1.03);
+      filter: drop-shadow(0 0 1.5rem rgba(242, 212, 146, 0.35));
+    }
+
+    .tree-link:focus-visible {
+      outline: 3px solid #f2d492;
+      outline-offset: 8px;
+    }
+
+    .tree {
+      display: block;
+      width: 100%;
+      height: auto;
+      filter: drop-shadow(0 1rem 1rem rgba(0, 0, 0, 0.25));
+    }
+
+    .star {
+      transform-box: fill-box;
+      transform-origin: center;
+      animation: twinkle 1.8s ease-in-out infinite alternate;
+    }
+
+    @keyframes twinkle {
+      to {
+        opacity: 0.65;
+        transform: scale(0.85);
+      }
+    }
+
+    @keyframes snowfall {
+      to {
+        transform: translateY(100%);
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="snow" aria-hidden="true"></div>
+  <main>
+    <h1>Merry Christmas</h1>
+    <p>Tap the tree for a little surprise</p>
+    <a class="tree-link" href="ChristmasPage/Home.html" aria-label="Open the Christmas page">
+      <svg class="tree" viewBox="0 0 300 340" role="img" aria-labelledby="tree-title">
+        <title id="tree-title">A decorated Christmas tree</title>
+        <path d="m150 22 13 27 30 4-22 20 6 29-27-15-27 15 6-29-22-20 30-4Z" fill="#f2d492" class="star"/>
+        <path d="m150 62-62 91h39l-57 77h48l-67 81h198l-67-81h48l-57-77h39Z" fill="#23704d"/>
+        <path d="m150 90-44 66h27l-44 60h33l-51 64h158l-51-64h33l-44-60h27Z" fill="#2f875b"/>
+        <path d="M136 283h28v48h-28z" fill="#9b6244"/>
+        <path d="M111 161c24 17 54 17 78 0m-99 54c35 22 89 22 120 0m-146 64c48 25 115 25 172 0" fill="none" stroke="#f2d492" stroke-linecap="round" stroke-width="4" opacity=".8"/>
+        <g fill="#e58b87">
+          <circle cx="145" cy="148" r="6"/><circle cx="185" cy="190" r="6"/><circle cx="112" cy="219" r="6"/>
+          <circle cx="162" cy="244" r="6"/><circle cx="91" cy="274" r="6"/><circle cx="206" cy="275" r="6"/>
+        </g>
+        <g fill="#fff1d2">
+          <circle cx="169" cy="123" r="4"/><circle cx="126" cy="188" r="4"/><circle cx="193" cy="232" r="4"/>
+          <circle cx="137" cy="264" r="4"/><circle cx="177" cy="293" r="4"/>
+        </g>
+      </svg>
+    </a>
+  </main>
+</body>
+</html>
