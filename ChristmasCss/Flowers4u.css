@@ -1,0 +1,176 @@
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  color-scheme: dark;
+  font-family: Georgia, "Times New Roman", serif;
+  color: #fff5e8;
+  background: #48263e;
+}
+
+body {
+  height: 100vh;
+  height: 100svh;
+  margin: 0;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse at 50% 37%, rgba(201, 111, 139, 0.25), transparent 46%),
+    radial-gradient(ellipse at 50% 100%, rgba(30, 70, 52, 0.5), transparent 55%),
+    linear-gradient(145deg, #39243a 0%, #63354f 52%, #34263a 100%);
+}
+
+.page {
+  position: relative;
+  display: grid;
+  height: 100vh;
+  height: 100svh;
+  place-items: center;
+  isolation: isolate;
+  padding: clamp(0.5rem, 2vh, 1.5rem) clamp(0.75rem, 4vw, 2.5rem);
+}
+
+.petals {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background-image:
+    radial-gradient(4px 7px at 12% 21%, rgba(242, 170, 179, 0.8) 98%, transparent),
+    radial-gradient(3px 6px at 83% 18%, rgba(243, 204, 129, 0.75) 98%, transparent),
+    radial-gradient(4px 7px at 74% 76%, rgba(242, 170, 179, 0.65) 98%, transparent),
+    radial-gradient(3px 6px at 19% 73%, rgba(243, 204, 129, 0.65) 98%, transparent);
+  background-size: 290px 260px;
+  opacity: 0.65;
+}
+
+.flower-card {
+  width: min(100%, 48rem);
+  padding: clamp(0.75rem, 2.5vh, 2rem) clamp(1.25rem, 6vw, 4rem);
+  overflow: hidden;
+  border: 1px solid rgba(255, 227, 195, 0.34);
+  border-radius: 2rem 2rem 1rem 1rem;
+  background: linear-gradient(155deg, rgba(69, 39, 62, 0.88), rgba(38, 48, 42, 0.9));
+  box-shadow: 0 2rem 5rem rgba(18, 12, 21, 0.34), inset 0 0 3rem rgba(255, 237, 199, 0.035);
+  text-align: center;
+  animation: arrive 800ms ease-out both;
+}
+
+.dedication {
+  margin: 0 0 0.7rem;
+  color: #f0c77e;
+  font-family: Arial, sans-serif;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+}
+
+h1 {
+  margin: 0;
+  color: #fff5e8;
+  font-size: clamp(2.4rem, 8vw, 4.7rem);
+  font-weight: 400;
+  letter-spacing: -0.055em;
+  line-height: 1;
+}
+
+h1 span {
+  color: #f0c77e;
+  font-style: italic;
+}
+
+.message {
+  max-width: 29rem;
+  margin: 1rem auto 0;
+  color: rgba(255, 245, 232, 0.8);
+  font-family: Arial, sans-serif;
+  font-size: clamp(0.95rem, 2.5vw, 1.08rem);
+  line-height: 1.7;
+}
+
+.bouquet {
+  display: block;
+  width: min(100%, 25rem);
+  height: min(40svh, 22rem);
+  margin: 0.35rem auto 0;
+  overflow: visible;
+  filter: drop-shadow(0 1.2rem 1.1rem rgba(16, 16, 18, 0.25));
+  animation: sway 5s ease-in-out infinite;
+  transform-origin: 50% 88%;
+}
+
+.back-link {
+  display: inline-flex;
+  min-height: 2.75rem;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.7rem 1.3rem;
+  border: 1px solid rgba(240, 199, 126, 0.72);
+  border-radius: 999px;
+  color: #fff5e8;
+  font-family: Arial, sans-serif;
+  font-size: 0.88rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background-color 180ms ease, color 180ms ease, transform 180ms ease;
+}
+
+.back-link span {
+  color: #e58b91;
+}
+
+.back-link:hover {
+  transform: translateY(-2px);
+  background: #f0c77e;
+  color: #39243a;
+}
+
+.back-link:focus-visible {
+  outline: 3px solid #fff5e8;
+  outline-offset: 4px;
+}
+
+@keyframes arrive {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes sway {
+  0%, 100% {
+    transform: rotate(-1deg);
+  }
+  50% {
+    transform: rotate(1deg);
+  }
+}
+
+@media (max-width: 520px) {
+  .flower-card {
+    padding: clamp(0.75rem, 2.5vh, 1.5rem) 1rem;
+    border-radius: 1.4rem;
+  }
+
+  .bouquet {
+    width: min(100%, 21rem);
+    height: min(38svh, 19rem);
+    margin: 0.25rem auto 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}
