@@ -1,0 +1,215 @@
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  color-scheme: dark;
+  font-family: Georgia, "Times New Roman", serif;
+  color: #fff9e9;
+  background: #103b31;
+}
+
+body {
+  min-height: 100vh;
+  min-height: 100svh;
+  margin: 0;
+  background:
+    radial-gradient(ellipse at 50% 40%, rgba(195, 131, 76, 0.16), transparent 45%),
+    radial-gradient(ellipse at 50% 100%, rgba(32, 99, 67, 0.72), transparent 55%),
+    linear-gradient(145deg, #0b2925 0%, #164b3b 52%, #092e29 100%);
+}
+
+.page {
+  position: relative;
+  display: grid;
+  min-height: 100vh;
+  min-height: 100svh;
+  place-items: center;
+  isolation: isolate;
+  padding: clamp(1rem, 4vw, 2.5rem);
+}
+
+.snow {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background-image:
+    radial-gradient(2px 2px at 12% 18%, #fff8df 99%, transparent),
+    radial-gradient(1.5px 1.5px at 77% 12%, #fff8df 99%, transparent),
+    radial-gradient(2px 2px at 89% 72%, #fff8df 99%, transparent),
+    radial-gradient(1.5px 1.5px at 24% 83%, #fff8df 99%, transparent),
+    radial-gradient(1px 1px at 62% 91%, #fff8df 99%, transparent),
+    radial-gradient(1.5px 1.5px at 42% 29%, #fff8df 99%, transparent);
+  background-size: 290px 260px;
+  opacity: 0.5;
+}
+
+.choices {
+  width: min(100%, 66rem);
+  padding: clamp(1.5rem, 5vw, 3.5rem);
+  border: 1px solid rgba(242, 212, 146, 0.35);
+  border-radius: 1.5rem;
+  background: linear-gradient(145deg, rgba(16, 59, 49, 0.88), rgba(8, 41, 36, 0.95));
+  box-shadow: 0 2rem 5rem rgba(0, 0, 0, 0.28);
+  text-align: center;
+  animation: arrive 700ms ease-out both;
+}
+
+.dedication {
+  margin: 0 0 1rem;
+  color: #f2d492;
+  font-family: Arial, sans-serif;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+h1 {
+  margin: 0;
+  color: #fff9e9;
+  font-size: clamp(2.2rem, 6vw, 4.5rem);
+  font-weight: 400;
+  letter-spacing: -0.045em;
+  line-height: 1.05;
+}
+
+h1 span {
+  display: block;
+  color: #e8bf72;
+  font-style: italic;
+}
+
+.love-note {
+  margin: 1rem 0 clamp(1.5rem, 4vw, 2.5rem);
+  color: rgba(255, 249, 233, 0.82);
+  font-size: clamp(1rem, 2.4vw, 1.2rem);
+  font-style: italic;
+}
+
+.love-note span {
+  color: #e58b87;
+}
+
+.choice-list {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  text-align: left;
+}
+
+.choice-card {
+  position: relative;
+  display: flex;
+  min-height: 12rem;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 1.4rem;
+  overflow: hidden;
+  border: 1px solid rgba(242, 212, 146, 0.3);
+  border-radius: 1rem;
+  background: rgba(255, 249, 233, 0.045);
+  color: #fff9e9;
+  text-decoration: none;
+  transition: transform 180ms ease, border-color 180ms ease, background-color 180ms ease;
+}
+
+.choice-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(242, 212, 146, 0.8);
+  background: rgba(255, 249, 233, 0.09);
+}
+
+.choice-card:focus-visible {
+  outline: 3px solid #f2d492;
+  outline-offset: 4px;
+}
+
+.choice-icon {
+  margin-bottom: 1rem;
+  font-size: 2rem;
+}
+
+.choice-title {
+  color: #f2d492;
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+.choice-description {
+  margin-top: 0.45rem;
+  color: rgba(255, 249, 233, 0.72);
+  font-family: Arial, sans-serif;
+  font-size: 0.88rem;
+  line-height: 1.5;
+}
+
+.choice-arrow {
+  position: absolute;
+  top: 1.25rem;
+  right: 1.25rem;
+  color: rgba(242, 212, 146, 0.72);
+}
+
+@keyframes arrive {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 640px) {
+  .choice-list {
+    grid-template-columns: 1fr;
+  }
+
+  .choice-card {
+    min-height: auto;
+    display: grid;
+    grid-template-columns: 2.5rem 1fr auto;
+    align-items: center;
+    column-gap: 0.9rem;
+    padding: 1rem;
+  }
+
+  .choice-icon {
+    grid-row: span 2;
+    margin: 0;
+  }
+
+  .choice-title,
+  .choice-description {
+    grid-column: 2;
+  }
+
+  .choice-title {
+    font-size: 1.05rem;
+  }
+
+  .choice-description {
+    margin-top: 0.2rem;
+    font-size: 0.8rem;
+  }
+
+  .choice-arrow {
+    position: static;
+    grid-column: 3;
+    grid-row: 1 / span 2;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}
